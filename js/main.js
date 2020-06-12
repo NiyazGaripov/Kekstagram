@@ -39,3 +39,15 @@ var getRandomIntInclusive = function (min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+var createComment = function () {
+  var numberAvatar = getRandomIntInclusive(1, 6);
+
+  var comment = {
+    avatar: 'img/avatar-' + numberAvatar + '.svg',
+    message: getRandomArrayElement(COMMENTS),
+    name: getRandomArrayElement(NAMES),
+  };
+
+  return comment;
+};
