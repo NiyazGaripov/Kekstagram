@@ -29,3 +29,7 @@ var NAMES = [
   'Тим',
   'Илон',
 ];
+
+var getRandomArrayElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
