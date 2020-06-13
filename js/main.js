@@ -106,3 +106,6 @@ var renderDomElements = function () {
   }
   blockPictures.appendChild(fragment);
 };
+
+getArrayDescriptionPhotos();
+renderDomElements();
