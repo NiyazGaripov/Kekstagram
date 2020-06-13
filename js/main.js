@@ -79,3 +79,13 @@ var getArrayDescriptionPhotos = function () {
   .fill('')
   .map(createDescriptionPhoto);
 };
+
+var createDomElements = function (element) {
+  var domElements = linkPicture.cloneNode(true);
+
+  domElements.querySelector('.picture__img').src = element.url;
+  domElements.querySelector('.picture__likes').textContent = element.likes;
+  domElements.querySelector('.picture__comments').textContent = element.comments.length;
+
+  return domElements;
+};
