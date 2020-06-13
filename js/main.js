@@ -53,12 +53,9 @@ var createComment = function () {
 };
 
 var getArrayComments = function () {
-  var comments = [];
   var amountComments = getRandomIntInclusive(2, 10);
 
-  for (var i = 0; i <= amountComments; i++) {
-    comments.push(createComment());
-  }
-
-  return comments;
+  return new Array(amountComments)
+    .fill('')
+    .map(createComment);
 };
