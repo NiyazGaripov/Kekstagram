@@ -30,6 +30,8 @@ var NAMES = [
   'Илон',
 ];
 
+var photos = [];
+
 var templatePicture = document.querySelector('#picture');
 var linkPicture = templatePicture.content.querySelector('.picture');
 var blockPictures = document.querySelector('.pictures');
@@ -57,27 +59,33 @@ var createComment = function () {
 };
 
 var getArrayComments = function () {
+  var comments = [];
   var amountComments = getRandomIntInclusive(2, 10);
 
-  return new Array(amountComments)
-    .fill('')
-    .map(createComment);
+  for (var i = 0; i <= amountComments; i++) {
+    comments.push(createComment());
+  }
+
+  return comments;
 };
 
 var createDescriptionPhoto = function (amount) {
   var descriptionPhoto = {
-    url: 'photos/' + amount + '.jpg',
+    url: 'img/photos/' + amount + '.jpg',
     description: getRandomArrayElement(DESCRIPTION_PHOTOS),
     likes: getRandomIntInclusive(15, 200),
     comments: getArrayComments(),
   };
+
   return descriptionPhoto;
 };
 
 var getArrayDescriptionPhotos = function () {
-  return new Array(AMOUNT_PHOTOS)
-  .fill('')
-  .map(createDescriptionPhoto);
+  for (var i = 0; i < AMOUNT_PHOTOS; i++) {
+    photos.push(createDescriptionPhoto(i + 1));
+  }
+
+  return photos;
 };
 
 var createDomElements = function (element) {
