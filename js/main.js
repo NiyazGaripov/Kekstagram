@@ -30,6 +30,10 @@ var NAMES = [
   'Илон',
 ];
 
+var templatePicture = document.querySelector('#picture');
+var linkPicture = templatePicture.content.querySelector('.picture');
+var blockPictures = document.querySelector('.pictures');
+
 var getRandomArrayElement = function (array) {
   return array[Math.floor(Math.random() * array.length)];
 };
