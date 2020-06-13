@@ -97,3 +97,12 @@ var createDomElements = function (element) {
 
   return domElements;
 };
+
+var renderDomElements = function () {
+  var fragment = document.createDocumentFragment();
+
+  for (var i = 0; i < AMOUNT_PHOTOS; i++) {
+    fragment.appendChild(createDomElements(photos[i]));
+  }
+  blockPictures.appendChild(fragment);
+};
