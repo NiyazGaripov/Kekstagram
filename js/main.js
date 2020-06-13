@@ -69,3 +69,9 @@ var createDescriptionPhoto = function (amount) {
   };
   return descriptionPhoto;
 };
+
+var getArrayDescriptionPhotos = function () {
+  return new Array(AMOUNT_PHOTOS)
+  .fill('')
+  .map(createDescriptionPhoto);
+};
