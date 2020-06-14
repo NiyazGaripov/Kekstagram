@@ -112,3 +112,8 @@ renderDomElements();
 
 var previewPicture = document.querySelector('.big-picture');
 previewPicture.classList.remove('hidden');
+
+previewPicture.querySelector('.big-picture__img img').src = photos[0].url;
+previewPicture.querySelector('.likes-count').textContent = photos[0].likes;
+previewPicture.querySelector('.comments-count').textContent = photos[0].comments.length;
+previewPicture.querySelector('.social__caption').textContent = photos[0].description;
