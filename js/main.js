@@ -130,3 +130,14 @@ var createComment = function (element) {
 
   return comment;
 };
+
+var renderComments = function () {
+  var fragment = document.createDocumentFragment();
+
+  for (var i = 0; i < photos[0].comments.length; i++) {
+    fragment.appendChild(createComment(photos[0].comments[i]));
+  }
+  commentList.appendChild(fragment);
+};
+
+renderComments();
