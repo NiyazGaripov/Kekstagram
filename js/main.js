@@ -109,3 +109,6 @@ var renderDomElements = function () {
 
 getArrayDescriptionPhotos();
 renderDomElements();
+
+var previewPicture = document.querySelector('.big-picture');
+previewPicture.classList.remove('hidden');
