@@ -131,6 +131,12 @@ var createComment = function (element) {
   return comment;
 };
 
+var socialCommentCount = previewPicture.querySelector('.social__comment-count');
+var commentsLoader = previewPicture.querySelector('.comments-loader');
+
+socialCommentCount.classList.add('hidden');
+commentsLoader.classList.add('hidden');
+
 var renderComments = function () {
   var fragment = document.createDocumentFragment();
 
