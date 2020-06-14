@@ -110,8 +110,10 @@ var renderDomElements = function () {
 getArrayDescriptionPhotos();
 renderDomElements();
 
-var previewPicture = document.querySelector('.big-picture');
+var body = document.querySelector('body');
+var previewPicture = body.querySelector('.big-picture');
 previewPicture.classList.remove('hidden');
+body.classList.add('modal-open');
 
 previewPicture.querySelector('.big-picture__img img').src = photos[0].url;
 previewPicture.querySelector('.likes-count').textContent = photos[0].likes;
@@ -139,6 +141,8 @@ commentsLoader.classList.add('hidden');
 
 var renderComments = function () {
   var fragment = document.createDocumentFragment();
+
+  commentList.innerHTML = '';
 
   for (var i = 0; i < photos[0].comments.length; i++) {
     fragment.appendChild(createComment(photos[0].comments[i]));
