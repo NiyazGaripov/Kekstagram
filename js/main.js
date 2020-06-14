@@ -117,3 +117,16 @@ previewPicture.querySelector('.big-picture__img img').src = photos[0].url;
 previewPicture.querySelector('.likes-count').textContent = photos[0].likes;
 previewPicture.querySelector('.comments-count').textContent = photos[0].comments.length;
 previewPicture.querySelector('.social__caption').textContent = photos[0].description;
+
+var commentList = previewPicture.querySelector('.social__comments');
+var commentItem = commentList.querySelector('.social__comment');
+
+var createComment = function (element) {
+  var comment = commentItem.cloneNode(true);
+
+  comment.querySelector('.social__picture').src = element.avatar;
+  comment.querySelector('.social__picture').alt = element.name;
+  comment.querySelector('.social__text').textContent = element.message;
+
+  return comment;
+};
