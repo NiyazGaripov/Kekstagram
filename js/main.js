@@ -114,8 +114,6 @@ renderDomElements();
 
 var body = document.querySelector('body');
 var previewPicture = body.querySelector('.big-picture');
-previewPicture.classList.remove('hidden');
-body.classList.add('modal-open');
 
 previewPicture.querySelector('.big-picture__img img').src = photos[0].url;
 previewPicture.querySelector('.likes-count').textContent = photos[0].likes;
