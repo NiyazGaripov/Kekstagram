@@ -151,3 +151,9 @@ var renderComments = function () {
 };
 
 renderComments();
+
+var uploadFile = document.querySelector('#upload-file');
+var imageEditingForm = document.querySelector('.img-upload__overlay');
+var imageEditingFormClose = imageEditingForm.querySelector('#upload-cancel');
+var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
+var textareaDesc = imageEditingForm.querySelector('.text__description');
