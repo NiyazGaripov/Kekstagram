@@ -183,3 +183,14 @@ var imageEditingFormEscHandler = function (evt) {
     closeImageEditingForm();
   }
 };
+
+
+var inputUploadClickHandler = function () {
+  openImageEditingForm();
+};
+
+var buttonCloseClickHandler = function () {
+  closeImageEditingForm();
+};
+
+uploadFile.addEventListener('change', inputUploadClickHandler);
