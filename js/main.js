@@ -157,3 +157,11 @@ var imageEditingForm = document.querySelector('.img-upload__overlay');
 var imageEditingFormClose = imageEditingForm.querySelector('#upload-cancel');
 var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
 var textareaDesc = imageEditingForm.querySelector('.text__description');
+
+
+var openImageEditingForm = function () {
+  imageEditingForm.classList.remove('hidden');
+  body.classList.add('modal-open');
+  imageEditingFormClose.addEventListener('click', buttonCloseClickHandler);
+  document.addEventListener('keydown', imageEditingFormEscHandler);
+};
