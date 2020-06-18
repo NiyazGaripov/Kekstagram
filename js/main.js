@@ -30,6 +30,8 @@ var NAMES = [
   'Илон',
 ];
 
+var ESC_KEY = 27;
+
 var photos = [];
 
 var templatePicture = document.querySelector('#picture');
@@ -171,4 +173,13 @@ var closeImageEditingForm = function () {
   body.classList.remove('modal-open');
   imageEditingFormClose.removeEventListener('click', buttonCloseClickHandler);
   document.removeEventListener('keydown', imageEditingFormEscHandler);
+};
+
+
+var imageEditingFormEscHandler = function (evt) {
+  if (evt.keyCode === ESC_KEY &&
+      inputHashtags !== document.activeElement &&
+      textareaDesc !== document.activeElement) {
+    closeImageEditingForm();
+  }
 };
