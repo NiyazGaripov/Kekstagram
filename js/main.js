@@ -171,6 +171,7 @@ var closeImageEditingForm = function () {
   body.classList.remove('modal-open');
   imageEditingFormClose.removeEventListener('click', buttonCloseClickHandler);
   document.removeEventListener('keydown', imageEditingFormEscHandler);
+  uploadFile.value = '';
 };
 
 
