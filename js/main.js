@@ -165,3 +165,10 @@ var openImageEditingForm = function () {
   imageEditingFormClose.addEventListener('click', buttonCloseClickHandler);
   document.addEventListener('keydown', imageEditingFormEscHandler);
 };
+
+var closeImageEditingForm = function () {
+  imageEditingForm.classList.add('hidden');
+  body.classList.remove('modal-open');
+  imageEditingFormClose.removeEventListener('click', buttonCloseClickHandler);
+  document.removeEventListener('keydown', imageEditingFormEscHandler);
+};
