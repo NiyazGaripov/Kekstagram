@@ -193,3 +193,9 @@ var buttonCloseClickHandler = function () {
 };
 
 uploadFile.addEventListener('change', inputUploadClickHandler);
+
+var MAX_VALUE = 100;
+var MIN_VALUE = 25;
+var controlSmaller = imageEditingForm.querySelector('.scale__control--smaller');
+var controlBigger = imageEditingForm.querySelector('.scale__control--bigger');
+var controlValue = imageEditingForm.querySelector('.scale__control--value');
