@@ -215,3 +215,11 @@ var setScaleValueImage = function (value) {
 
   return value;
 };
+
+var buttonScaleControlClickHandler = function (evt) {
+  if (evt.target === controlSmaller) {
+    setScaleValueImage(getIntegerFromString(controlValue) - SCALE_STEP);
+  } else if (evt.target === controlBigger) {
+    setScaleValueImage(getIntegerFromString(controlValue) + SCALE_STEP);
+  }
+};
