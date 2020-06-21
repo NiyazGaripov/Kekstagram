@@ -223,3 +223,7 @@ var buttonScaleControlClickHandler = function (evt) {
     setScaleValueImage(getIntegerFromString(controlValue) + SCALE_STEP);
   }
 };
+
+controlSmaller.addEventListener('click', buttonScaleControlClickHandler);
+
+controlBigger.addEventListener('click', buttonScaleControlClickHandler);
