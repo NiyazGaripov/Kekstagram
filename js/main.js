@@ -235,3 +235,7 @@ var effectSepia = imageEditingForm.querySelector('[id=effect-sepia]');
 var effectMarvin = imageEditingForm.querySelector('[id=effect-marvin]');
 var effectPhobos = imageEditingForm.querySelector('[id=effect-phobos]');
 var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
+
+var removeClass = function (element) {
+  element.className = '';
+};
