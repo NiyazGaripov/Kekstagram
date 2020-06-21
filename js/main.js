@@ -201,3 +201,7 @@ var controlSmaller = imageEditingForm.querySelector('.scale__control--smaller');
 var controlBigger = imageEditingForm.querySelector('.scale__control--bigger');
 var controlValue = imageEditingForm.querySelector('.scale__control--value');
 var imageUpload = imageEditingForm.querySelector('img');
+
+var getIntegerFromString = function (element) {
+  return parseInt(element.value, 10);
+};
