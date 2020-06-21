@@ -205,3 +205,13 @@ var imageUpload = imageEditingForm.querySelector('img');
 var getIntegerFromString = function (element) {
   return parseInt(element.value, 10);
 };
+
+var setScaleValueImage = function (value) {
+  if (value >= MIN_VALUE && value <= MAX_VALUE) {
+    controlValue.value = value + '%';
+    imageUpload.style.transform = 'scale(' + value / 100 + ')';
+    imageUpload.style.transition = '0.4s';
+  }
+
+  return value;
+};
