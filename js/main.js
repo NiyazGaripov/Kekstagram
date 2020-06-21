@@ -227,3 +227,11 @@ var buttonScaleControlClickHandler = function (evt) {
 controlSmaller.addEventListener('click', buttonScaleControlClickHandler);
 
 controlBigger.addEventListener('click', buttonScaleControlClickHandler);
+
+var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
+var effectNone = imageEditingForm.querySelector('[id=effect-none]');
+var effectChrome = imageEditingForm.querySelector('[id=effect-chrome]');
+var effectSepia = imageEditingForm.querySelector('[id=effect-sepia]');
+var effectMarvin = imageEditingForm.querySelector('[id=effect-marvin]');
+var effectPhobos = imageEditingForm.querySelector('[id=effect-phobos]');
+var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
