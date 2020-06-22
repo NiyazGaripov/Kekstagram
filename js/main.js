@@ -164,6 +164,12 @@ var openImageEditingForm = function () {
   body.classList.add('modal-open');
   imageEditingFormClose.addEventListener('click', buttonCloseClickHandler);
   document.addEventListener('keydown', imageEditingFormEscHandler);
+  effectNone.addEventListener('click', setClassByEffect);
+  effectChrome.addEventListener('click', setClassByEffect);
+  effectSepia.addEventListener('click', setClassByEffect);
+  effectMarvin.addEventListener('click', setClassByEffect);
+  effectPhobos.addEventListener('click', setClassByEffect);
+  effectHeat.addEventListener('click', setClassByEffect);
 };
 
 var closeImageEditingForm = function () {
@@ -172,6 +178,12 @@ var closeImageEditingForm = function () {
   imageEditingFormClose.removeEventListener('click', buttonCloseClickHandler);
   document.removeEventListener('keydown', imageEditingFormEscHandler);
   uploadFile.value = '';
+  effectNone.removeEventListener('click', setClassByEffect);
+  effectChrome.removeEventListener('click', setClassByEffect);
+  effectSepia.removeEventListener('click', setClassByEffect);
+  effectMarvin.removeEventListener('click', setClassByEffect);
+  effectPhobos.removeEventListener('click', setClassByEffect);
+  effectHeat.removeEventListener('click', setClassByEffect);
 };
 
 
