@@ -239,3 +239,14 @@ var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
 var removeClass = function (element) {
   element.className = '';
 };
+
+
+var setClassByEffect = function (evt) {
+  var effectName = evt.target.value;
+  removeClass(imageUploadPreview);
+  if (effectName !== 'none') {
+    imageUploadPreview.classList.add('effects__preview--' + effectName);
+  } else {
+    removeClass(imageUploadPreview);
+  }
+};
