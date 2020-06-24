@@ -287,4 +287,9 @@ var inputHashtagCheckHandler = function (evt) {
   var maxLengthHashtag = false;
   var repeat = false;
   var maxAmountHashtag = false;
+
+  if (target.value === '') {
+    target.setCustomValidity('');
+    return;
+  }
 };
