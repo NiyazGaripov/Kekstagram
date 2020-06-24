@@ -271,3 +271,20 @@ var setClassByEffect = function (evt) {
     effectScaleLevel.classList.add('hidden');
   }
 };
+
+var MIN_LENGTH_HASHTAG = 2;
+var MAX_LENGTH_HASHTAG = 20;
+var MAX_AMOUNT_HASHTAG = 5;
+
+var inputHashtagCheckHandler = function (evt) {
+  var target = evt.target;
+  var arrayHashtags = target.value.split(' ');
+  var errorMessage = '';
+  var regExpr = /(^)(#[a-zA-Zа-яА-Я\d]*$)/;
+  var withoutHash = false;
+  var invalidSymbols = false;
+  var minLengthHashtag = false;
+  var maxLengthHashtag = false;
+  var repeat = false;
+  var maxAmountHashtag = false;
+};
