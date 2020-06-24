@@ -292,4 +292,28 @@ var inputHashtagCheckHandler = function (evt) {
     target.setCustomValidity('');
     return;
   }
+
+  for (var i = 0; i < arrayHashtags.length; i++) {
+    if (arrayHashtags[i][0] !== '#') {
+      withoutHash = true;
+    }
+
+    if (!regExpr.test(arrayHashtags[i])) {
+      invalidSymbols = true;
+    }
+
+    if (arrayHashtags[i].length < MIN_LENGTH_HASHTAG) {
+      minLengthHashtag = true;
+    }
+
+    if (arrayHashtags[i].length > MAX_LENGTH_HASHTAG) {
+      maxLengthHashtag = true;
+    }
+
+    for (var j = i + 1; j < arrayHashtags.length; j++) {
+      if (arrayHashtags[i].toLowerCase() === arrayHashtags[j].toLowerCase()) {
+        repeat = true;
+      }
+    }
+  }
 };
