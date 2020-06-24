@@ -241,12 +241,19 @@ controlSmaller.addEventListener('click', buttonScaleControlClickHandler);
 controlBigger.addEventListener('click', buttonScaleControlClickHandler);
 
 var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
+var effectScaleLevel = imageEditingForm.querySelector('.effect-level');
+var effectLevelValue = imageEditingForm.querySelector('.effect-level__value');
+var effectLevelPin = imageEditingForm.querySelector('.effect-level__pin');
+var effectLevelDepth = imageEditingForm.querySelector('.effect-level__depth');
 var effectNone = imageEditingForm.querySelector('[id=effect-none]');
 var effectChrome = imageEditingForm.querySelector('[id=effect-chrome]');
 var effectSepia = imageEditingForm.querySelector('[id=effect-sepia]');
 var effectMarvin = imageEditingForm.querySelector('[id=effect-marvin]');
 var effectPhobos = imageEditingForm.querySelector('[id=effect-phobos]');
 var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
+
+effectLevelPin.style.left = '100%';
+effectLevelDepth.style.width = '100%';
 
 var removeClass = function (element) {
   element.className = '';
@@ -258,7 +265,9 @@ var setClassByEffect = function (evt) {
   removeClass(imageUploadPreview);
   if (effectName !== 'none') {
     imageUploadPreview.classList.add('effects__preview--' + effectName);
+    effectScaleLevel.classList.remove('hidden');
   } else {
     removeClass(imageUploadPreview);
+    effectScaleLevel.classList.add('hidden');
   }
 };
