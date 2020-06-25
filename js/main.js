@@ -344,4 +344,6 @@ var inputHashtagCheckHandler = function (evt) {
   if (maxAmountHashtag) {
     errorMessage += ' Нельзя указывать более ' + MAX_AMOUNT_HASHTAG + ' хэш-тегов!';
   }
+
+  target.setCustomValidity(errorMessage);
 };
