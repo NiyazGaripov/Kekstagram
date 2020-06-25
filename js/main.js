@@ -359,3 +359,4 @@ var inputTextareaCheckHandler = function (evt) {
 };
 
 inputHashtags.addEventListener('input', inputHashtagCheckHandler);
+textareaDesc.addEventListener('input', inputTextareaCheckHandler);
