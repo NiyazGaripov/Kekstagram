@@ -348,4 +348,14 @@ var inputHashtagCheckHandler = function (evt) {
   target.setCustomValidity(errorMessage);
 };
 
+var inputTextareaCheckHandler = function (evt) {
+  var target = evt.target;
+
+  if (target.value.length > 140) {
+    target.setCustomValidity('Длина комментария не может составлять больше 140 символов!');
+  } else {
+    target.setCustomValidity('');
+  }
+};
+
 inputHashtags.addEventListener('input', inputHashtagCheckHandler);
