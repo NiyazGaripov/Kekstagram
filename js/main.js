@@ -316,4 +316,32 @@ var inputHashtagCheckHandler = function (evt) {
       }
     }
   }
+
+  if (arrayHashtags.length > MAX_AMOUNT_HASHTAG) {
+    maxAmountHashtag = true;
+  }
+
+  if (withoutHash) {
+    errorMessage += ' Хэш-тег должен начинаться с символа решётка #!';
+  }
+
+  if (invalidSymbols) {
+    errorMessage += ' Хэш-тег содержит недопустимые спецсимволы, символы пунктуации или эмодзи!';
+  }
+
+  if (minLengthHashtag) {
+    errorMessage += ' Минимальная длина хэш-тега составляет ' + MIN_LENGTH_HASHTAG + ' символа!';
+  }
+
+  if (maxLengthHashtag) {
+    errorMessage += ' Максимальная длина одного хэш-тега составляет' + MAX_LENGTH_HASHTAG + ' символов, включая решётку!';
+  }
+
+  if (repeat) {
+    errorMessage += ' Поле содержит повторяющиеся хэш-теги!';
+  }
+
+  if (maxAmountHashtag) {
+    errorMessage += ' Нельзя указывать более ' + MAX_AMOUNT_HASHTAG + ' хэш-тегов!';
+  }
 };
