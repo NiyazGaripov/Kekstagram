@@ -347,3 +347,5 @@ var inputHashtagCheckHandler = function (evt) {
 
   target.setCustomValidity(errorMessage);
 };
+
+inputHashtags.addEventListener('input', inputHashtagCheckHandler);
