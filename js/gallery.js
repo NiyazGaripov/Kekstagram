@@ -69,7 +69,7 @@
 
   var createDescriptionPhoto = function (amount) {
     var descriptionPhoto = {
-      url: 'photos/' + amount + '.jpg',
+      url: 'img/photos/' + amount + '.jpg',
       description: getRandomArrayElement(DESCRIPTION_PHOTOS),
       likes: getRandomIntInclusive(15, 200),
       comments: getArrayComments(),
