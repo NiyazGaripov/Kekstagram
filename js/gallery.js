@@ -103,4 +103,8 @@
 
   getArrayDescriptionPhotos();
   renderDomElements();
+
+  window.gallery = {
+    photos: photos,
+  };
 })();
