@@ -7,6 +7,7 @@
   var likesCount = previewPicture.querySelector('.likes-count');
   var commentsCount = previewPicture.querySelector('.comments-count');
   var socialComments = previewPicture.querySelector('.social__comments');
+  var socialComment = socialComments.querySelector('.social__comment');
   var socialCaption = previewPicture.querySelector('.social__caption');
   var socialCommentCount = previewPicture.querySelector('.social__comment-count');
   var commentsLoader = previewPicture.querySelector('.comments-loader');
@@ -19,4 +20,5 @@
   bigPicture.src = window.gallery.photos[0].url;
   likesCount.textContent = window.gallery.photos[0].likes;
   commentsCount.textContent = window.gallery.photos[0].comments.length;
+  socialCaption.textContent = window.gallery.photos[0].description;
 })();
