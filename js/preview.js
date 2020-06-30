@@ -18,4 +18,5 @@
 
   bigPicture.src = window.gallery.photos[0].url;
   likesCount.textContent = window.gallery.photos[0].likes;
+  commentsCount.textContent = window.gallery.photos[0].comments.length;
 })();
