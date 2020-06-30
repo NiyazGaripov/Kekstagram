@@ -35,4 +35,14 @@
   };
 
   fillPictureInfo(window.gallery.photos[0]);
+
+  var cloneComment = function (element) {
+    var cloneElement = socialComment.cloneNode(true);
+
+    cloneElement.querySelector('.social__picture').src = element.avatar;
+    cloneElement.querySelector('.social__picture').alt = element.name;
+    cloneElement.querySelector('.social__text').textContent = element.message;
+
+    return cloneElement;
+  };
 })();
