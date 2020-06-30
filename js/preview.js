@@ -15,4 +15,6 @@
   previewPicture.classList.remove('hidden');
   socialCommentCount.classList.add('hidden');
   commentsLoader.classList.add('hidden');
+
+  bigPicture.src = window.gallery.photos[0].url;
 })();
