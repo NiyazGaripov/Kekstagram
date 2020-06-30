@@ -17,4 +17,5 @@
   commentsLoader.classList.add('hidden');
 
   bigPicture.src = window.gallery.photos[0].url;
+  likesCount.textContent = window.gallery.photos[0].likes;
 })();
