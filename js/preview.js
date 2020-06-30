@@ -13,12 +13,10 @@
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
   body.classList.add('modal-open');
-  previewPicture.classList.remove('hidden');
-  socialCommentCount.classList.add('hidden');
-  commentsLoader.classList.add('hidden');
+  
+  var showElement = function (element) {
+    element.classList.remove('hidden');
+  };
 
-  bigPicture.src = window.gallery.photos[0].url;
-  likesCount.textContent = window.gallery.photos[0].likes;
-  commentsCount.textContent = window.gallery.photos[0].comments.length;
-  socialCaption.textContent = window.gallery.photos[0].description;
+  showElement(previewPicture);
 })();
