@@ -13,10 +13,17 @@
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
   body.classList.add('modal-open');
-  
+
   var showElement = function (element) {
     element.classList.remove('hidden');
   };
 
   showElement(previewPicture);
+
+  var hideElement = function (element) {
+    element.classList.add('hidden');
+  };
+
+  hideElement(socialCommentCount);
+  hideElement(commentsLoader);
 })();
