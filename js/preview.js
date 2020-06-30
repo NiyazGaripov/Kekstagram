@@ -11,6 +11,7 @@
   var socialCommentCount = previewPicture.querySelector('.social__comment-count');
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
+  body.classList.add('modal-open');
   previewPicture.classList.remove('hidden');
   socialCommentCount.classList.add('hidden');
   commentsLoader.classList.add('hidden');
