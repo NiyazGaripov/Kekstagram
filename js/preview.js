@@ -32,9 +32,17 @@
     likesCount.textContent = array.likes;
     commentsCount.textContent = array.comments.length;
     socialCaption.textContent = array.description;
+
+    return array;
   };
 
-  fillPictureInfo(window.gallery.photos[0]);
+  var removeElement = function (element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  };
+
+  removeElement(socialComments);
 
   var cloneComment = function (element) {
     var cloneElement = socialComment.cloneNode(true);
@@ -48,9 +56,10 @@
 
   var renderComments = function () {
     var fragment = document.createDocumentFragment();
+    var firstElement = fillPictureInfo(window.gallery.photos[0]);
 
-    for (var i = 0; i < window.gallery.photos[0].comments.length; i++) {
-      fragment.appendChild(cloneComment(window.gallery.photos[0].comments[i]));
+    for (var i = 0; i < firstElement.comments.length; i++) {
+      fragment.appendChild(cloneComment(firstElement.comments[i]));
     }
 
     socialComments.appendChild(fragment);
