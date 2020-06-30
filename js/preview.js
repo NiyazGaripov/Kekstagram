@@ -26,4 +26,13 @@
 
   hideElement(socialCommentCount);
   hideElement(commentsLoader);
+
+  var fillPictureInfo = function (array) {
+    bigPicture.src = array.url;
+    likesCount.textContent = array.likes;
+    commentsCount.textContent = array.comments.length;
+    socialCaption.textContent = array.description;
+  };
+
+  fillPictureInfo(window.gallery.photos[0]);
 })();
