@@ -12,4 +12,6 @@
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
   previewPicture.classList.remove('hidden');
+  socialCommentCount.classList.add('hidden');
+  commentsLoader.classList.add('hidden');
 })();
