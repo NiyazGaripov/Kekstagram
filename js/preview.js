@@ -45,4 +45,16 @@
 
     return cloneElement;
   };
+
+  var renderComments = function () {
+    var fragment = document.createDocumentFragment();
+
+    for (var i = 0; i < window.gallery.photos[0].comments.length; i++) {
+      fragment.appendChild(cloneComment(window.gallery.photos[0].comments[i]));
+    }
+
+    socialComments.appendChild(fragment);
+  };
+
+  renderComments();
 })();
