@@ -90,4 +90,9 @@
   };
 
   openPreviewPicture();
+
+  var closePreviewPicture = function () {
+    hideElement(previewPicture);
+    body.classList.remove('modal-open');
+  };
 })();
