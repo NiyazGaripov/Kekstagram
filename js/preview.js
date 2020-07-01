@@ -15,7 +15,7 @@
   var socialCommentCount = previewPicture.querySelector('.social__comment-count');
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
-  var previewPictureClose = previewPicture.querySelector('.cancel');
+  var previewPictureClose = previewPicture.querySelector('#picture-cancel');
 
   var showElement = function (element) {
     element.classList.remove('hidden');
@@ -25,25 +25,11 @@
     element.classList.add('hidden');
   };
 
-  hideElement(socialCommentCount);
-  hideElement(commentsLoader);
-
-  var fillPictureInfo = function (array) {
-    bigPicture.src = array.url;
-    likesCount.textContent = array.likes;
-    commentsCount.textContent = array.comments.length;
-    socialCaption.textContent = array.description;
-
-    return array;
-  };
-
   var removeElement = function (element) {
     while (element.firstChild) {
       element.removeChild(element.firstChild);
     }
   };
-
-  removeElement(socialComments);
 
   var cloneComment = function (element) {
     var cloneElement = socialComment.cloneNode(true);
@@ -55,18 +41,31 @@
     return cloneElement;
   };
 
-  var renderComments = function () {
+  var renderComments = function (array) {
     var fragment = document.createDocumentFragment();
-    var firstElement = fillPictureInfo(window.gallery.photos[0]);
 
-    for (var i = 0; i < firstElement.comments.length; i++) {
-      fragment.appendChild(cloneComment(firstElement.comments[i]));
+    for (var i = 0; i < array.length; i++) {
+      fragment.appendChild(cloneComment(array[i]));
     }
 
-    socialComments.appendChild(fragment);
+    return fragment;
   };
 
-  renderComments();
+  var fillPictureInfo = function (array) {
+    var commentsFragment = renderComments(array.comments);
+
+    bigPicture.src = array.url;
+    likesCount.textContent = array.likes;
+    commentsCount.textContent = array.comments.length;
+    socialCaption.textContent = array.description;
+
+    removeElement(socialComments);
+    hideElement(socialCommentCount);
+    hideElement(commentsLoader);
+    socialComments.appendChild(commentsFragment);
+  };
+
+  fillPictureInfo(window.gallery.photos[0]);
 
   var previewPictureEscHandler = function (evt) {
     if (evt.key === ESC_KEY) {
