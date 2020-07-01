@@ -67,4 +67,10 @@
   };
 
   renderComments();
+
+  var previewPictureEscHandler = function (evt) {
+    if (evt.key === ESC_KEY) {
+      closePreviewPicture();
+    }
+  };
 })();
