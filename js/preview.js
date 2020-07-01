@@ -1,7 +1,10 @@
 'use strict';
 
 (function () {
+  var ESC_KEY = 'Escape';
+
   var body = document.querySelector('body');
+  var pictures = document.querySelectorAll('.picture');
   var previewPicture = document.querySelector('.big-picture');
   var bigPicture = previewPicture.querySelector('.big-picture__img img');
   var likesCount = previewPicture.querySelector('.likes-count');
@@ -12,13 +15,11 @@
   var socialCommentCount = previewPicture.querySelector('.social__comment-count');
   var commentsLoader = previewPicture.querySelector('.comments-loader');
 
-  body.classList.add('modal-open');
+  var previewPictureClose = previewPicture.querySelector('.cancel');
 
   var showElement = function (element) {
     element.classList.remove('hidden');
   };
-
-  showElement(previewPicture);
 
   var hideElement = function (element) {
     element.classList.add('hidden');
