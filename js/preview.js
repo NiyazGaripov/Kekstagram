@@ -73,4 +73,8 @@
       closePreviewPicture();
     }
   };
+
+  var buttonCloseClickHandler = function () {
+    closePreviewPicture();
+  };
 })();
