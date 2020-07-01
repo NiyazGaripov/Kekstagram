@@ -77,4 +77,17 @@
   var buttonCloseClickHandler = function () {
     closePreviewPicture();
   };
+
+  var openPreviewPicture = function () {
+    for (var i = 0; i < pictures.length; i++) {
+      pictures[i].addEventListener('click', function () {
+        showElement(previewPicture);
+        body.classList.add('modal-open');
+      });
+    }
+    previewPictureClose.addEventListener('click', buttonCloseClickHandler);
+    document.addEventListener('keydown', previewPictureEscHandler);
+  };
+
+  openPreviewPicture();
 })();
