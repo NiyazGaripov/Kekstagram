@@ -53,13 +53,13 @@
     return fragment;
   };
 
-  var fillPictureInfo = function (array) {
-    var commentsFragment = renderComments(array.comments);
+  var fillPictureInfo = function (item) {
+    var commentsFragment = renderComments(item.comments);
 
-    bigPicture.src = array.url;
-    likesCount.textContent = array.likes;
-    commentsCount.textContent = array.comments.length;
-    socialCaption.textContent = array.description;
+    bigPicture.src = item.url;
+    likesCount.textContent = item.likes;
+    commentsCount.textContent = item.comments.length;
+    socialCaption.textContent = item.description;
 
     socialComments.appendChild(commentsFragment);
   };
