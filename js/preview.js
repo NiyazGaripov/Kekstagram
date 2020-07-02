@@ -64,6 +64,11 @@
     socialComments.appendChild(commentsFragment);
   };
 
+  var closePreviewPicture = function () {
+    hideElement(previewPicture);
+    body.classList.remove('modal-open');
+  };
+
   var previewPictureEscHandler = function (evt) {
     if (evt.key === ESC_KEY) {
       closePreviewPicture();
@@ -86,10 +91,11 @@
     document.addEventListener('keydown', previewPictureEscHandler);
   };
 
-  openPreviewPicture();
-
-  var closePreviewPicture = function () {
-    hideElement(previewPicture);
-    body.classList.remove('modal-open');
+  var previewPictureClickHandler = function (evt) {
+    for (var i = 0; i < pictureCollections.length; i++) {
+      if (evt.target === pictureCollections[i]) {
+        openPreviewPicture(i);
+      }
+    }
   };
 })();
