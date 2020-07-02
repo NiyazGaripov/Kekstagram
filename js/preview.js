@@ -65,6 +65,8 @@
   };
 
   var closePreviewPicture = function () {
+    previewPictureClose.removeEventListener('click', buttonCloseClickHandler);
+    document.removeEventListener('keydown', previewPictureEscHandler);
     hideElement(previewPicture);
     body.classList.remove('modal-open');
   };
