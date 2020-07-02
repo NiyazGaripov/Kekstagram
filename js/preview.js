@@ -2,9 +2,11 @@
 
 (function () {
   var ESC_KEY = 'Escape';
+  var ENTER_KEY = 'Enter';
 
   var body = document.querySelector('body');
   var galleryContainer = document.querySelector('.pictures');
+  var pictureCollections = galleryContainer.querySelectorAll('.picture__img');
   var previewPicture = document.querySelector('.big-picture');
   var bigPicture = previewPicture.querySelector('.big-picture__img img');
   var likesCount = previewPicture.querySelector('.likes-count');
