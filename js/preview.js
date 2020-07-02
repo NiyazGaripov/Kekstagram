@@ -98,4 +98,15 @@
       }
     }
   };
+
+  var previewPictureKeyDownHandler = function (evt) {
+    if (evt.key === ENTER_KEY) {
+      for (var i = 0; i < pictureCollections.length; i++) {
+        var current = evt.target.querySelector('.picture__img');
+        if (current === pictureCollections[i]) {
+          openPreviewPicture(i);
+        }
+      }
+    }
+  };
 })();
