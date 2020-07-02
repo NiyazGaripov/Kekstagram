@@ -109,4 +109,7 @@
       }
     }
   };
+
+  galleryContainer.addEventListener('click', previewPictureClickHandler);
+  galleryContainer.addEventListener('keydown', previewPictureKeyDownHandler);
 })();
