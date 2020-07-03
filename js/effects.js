@@ -102,6 +102,7 @@
   effectLevelPin.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
+    var effectScaleLevelWidth = effectScaleLevel.offsetWidth;
     var startCoords = {
       x: evt.clientX,
     };
@@ -113,11 +114,19 @@
         x: startCoords.x - moveEvt.clientX,
       };
 
+      var pinX = effectLevelPin.offsetLeft - shift.x;
+
       startCoords = {
         x: moveEvt.clientX,
       };
 
-      effectLevelPin.style.left = (effectLevelPin.offsetLeft - shift.x) + 'px';
+      if (!(pinX < 0 || pinX > effectScaleLevelWidth)) {
+        var pin = pinX / effectScaleLevelWidth;
+        effectLevelPin.style.left = pinX + 'px';
+        effectLevelValue.value = Math.round(pin * DEFAULT_EFFECT_VALUE);
+        effectLevelDepth.style.width = Math.round(pin * DEFAULT_EFFECT_VALUE);
+        setEffectValue(effectLevelValue.value);
+      }
     };
 
     var mouseUpHandler = function (upEvt) {
