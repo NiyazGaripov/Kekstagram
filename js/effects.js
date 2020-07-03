@@ -79,6 +79,9 @@
           case 'effects__preview--sepia':
             imageUploadPreview.style.filter = 'sepia(' + (SEPIA_MAX_VALUE * prop) + ')';
             break;
+          case 'effects__preview--marvin':
+            imageUploadPreview.style.filter = 'invert(' + (INVERT_MAX_VALUE * prop) + '%)';
+            break;
         }
       }
     }
