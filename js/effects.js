@@ -12,7 +12,6 @@
   var imageEditingForm = document.querySelector('.img-upload__overlay');
   var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
   var effectFieldset = imageEditingForm.querySelector('.effect-level');
-  var effectScaleLevel = imageEditingForm.querySelector('.effect-level__line');
   var effectLevelValue = imageEditingForm.querySelector('.effect-level__value');
   var effectLevelPin = imageEditingForm.querySelector('.effect-level__pin');
   var effectLevelDepth = imageEditingForm.querySelector('.effect-level__depth');
@@ -22,9 +21,6 @@
   var effectMarvin = imageEditingForm.querySelector('[id=effect-marvin]');
   var effectPhobos = imageEditingForm.querySelector('[id=effect-phobos]');
   var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
-
-  effectLevelPin.style.left = '100%';
-  effectLevelDepth.style.width = '100%';
 
   var removeClass = function (element) {
     element.className = '';
@@ -47,6 +43,7 @@
     } else {
       removeClass(imageUploadPreview);
       effectFieldset.classList.add('hidden');
+      imageUploadPreview.style.filter = '';
     }
   };
 
@@ -72,7 +69,7 @@
     return value * (max - min) + min;
   };
 
-  var setEffectValue = function (value) {
+  var setValue = function (value) {
     var prop = value / 100;
     var effectClasses = Array.from(imageUploadPreview.classList);
 
@@ -101,49 +98,9 @@
     }
   };
 
-  effectLevelPin.addEventListener('mousedown', function (evt) {
-    evt.preventDefault();
-
-    var effectScaleLevelWidth = effectScaleLevel.offsetWidth;
-    var startCoords = {
-      x: evt.clientX,
-    };
-
-    var mouseMoveHandler = function (moveEvt) {
-      moveEvt.preventDefault();
-
-      var shift = {
-        x: startCoords.x - moveEvt.clientX,
-      };
-
-      var pinX = effectLevelPin.offsetLeft - shift.x;
-
-      startCoords = {
-        x: moveEvt.clientX,
-      };
-
-      if (!(pinX < 0 || pinX > effectScaleLevelWidth)) {
-        var pin = pinX / effectScaleLevelWidth;
-        effectLevelPin.style.left = pinX + 'px';
-        effectLevelValue.value = Math.round(pin * DEFAULT_EFFECT_VALUE);
-        effectLevelDepth.style.width = Math.round(pin * DEFAULT_EFFECT_VALUE) + '%';
-        setEffectValue(effectLevelValue.value);
-      }
-    };
-
-    var mouseUpHandler = function (upEvt) {
-      upEvt.preventDefault();
-
-      document.removeEventListener('mousemove', mouseMoveHandler);
-      document.removeEventListener('mouseup', mouseUpHandler);
-    };
-
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-  });
-
   window.effects = {
     addListeners: addListeners,
     removeListeners: removeListeners,
+    setValue: setValue,
   };
 })();
