@@ -60,6 +60,12 @@
     effectHeat.removeEventListener('click', setClassByEffect);
   };
 
+  var setDefaultEffectValue = function () {
+    effectLevelValue.value = DEFAULT_EFFECT_VALUE;
+    effectLevelPin.style.left = DEFAULT_EFFECT_VALUE + '%';
+    effectLevelDepth.style.width = DEFAULT_EFFECT_VALUE + '%';
+  };
+
   effectLevelPin.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
