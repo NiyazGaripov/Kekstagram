@@ -75,6 +75,10 @@
         switch (effectClasses[i]) {
           case 'effects__preview--chrome':
             imageUploadPreview.style.filter = 'grayscale(' + (GRAYSCALE_MAX_VALUE * prop) + ')';
+            break;
+          case 'effects__preview--sepia':
+            imageUploadPreview.style.filter = 'sepia(' + (SEPIA_MAX_VALUE * prop) + ')';
+            break;
         }
       }
     }
