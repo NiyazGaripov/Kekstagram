@@ -66,6 +66,10 @@
     effectLevelDepth.style.width = DEFAULT_EFFECT_VALUE + '%';
   };
 
+  var setEffectValue = function (value) {
+    var prop = value / 100;
+  };
+
   effectLevelPin.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
