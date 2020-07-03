@@ -85,6 +85,11 @@
           case 'effects__preview--phobos':
             imageUploadPreview.style.filter = 'blur(' + (BLUR_MAX_VALUE * prop) + 'px)';
             break;
+          case 'effects__preview--heat':
+            imageUploadPreview.style.filter = 'brightness(' + getValueRange(prop, BRIGHTNESS_MIN_VALUE, BRIGHTNESS_MAX_VALUE) + ')';
+            break;
+          default:
+            imageUploadPreview.style.filter = '';
         }
       }
     }
