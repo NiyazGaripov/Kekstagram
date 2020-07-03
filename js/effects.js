@@ -69,6 +69,15 @@
   var setEffectValue = function (value) {
     var prop = value / 100;
     var effectClasses = Array.from(imageUploadPreview.classList);
+
+    for (var i = 0; i < effectClasses.length; i++) {
+      if (effectClasses[i].match('effects__preview--')) {
+        switch (effectClasses[i]) {
+          case 'effects__preview--chrome':
+            imageUploadPreview.style.filter = 'grayscale(' + (GRAYSCALE_MAX_VALUE * prop) + ')';
+        }
+      }
+    }
   };
 
   effectLevelPin.addEventListener('mousedown', function (evt) {
