@@ -60,7 +60,8 @@
       y: evt.clientY,
     };
 
-
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
   });
 
   window.effects = {
