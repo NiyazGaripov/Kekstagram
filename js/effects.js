@@ -52,6 +52,17 @@
     effectHeat.removeEventListener('click', setClassByEffect);
   };
 
+  effectLevelPin.addEventListener('mousedown', function (evt) {
+    evt.preventDefault();
+
+    var startCoords = {
+      x: evt.clientX,
+      y: evt.clientY,
+    };
+
+
+  });
+
   window.effects = {
     addListeners: addListeners,
     removeListeners: removeListeners,
