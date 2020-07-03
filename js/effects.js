@@ -60,6 +60,10 @@
     effectHeat.removeEventListener('click', setClassByEffect);
   };
 
+  var getValueRange = function (value, min, max) {
+    return value * (max - min) + min;
+  };
+
   var setDefaultEffectValue = function () {
     effectLevelValue.value = DEFAULT_EFFECT_VALUE;
     effectLevelPin.style.left = DEFAULT_EFFECT_VALUE + '%';
