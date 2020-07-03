@@ -82,6 +82,9 @@
           case 'effects__preview--marvin':
             imageUploadPreview.style.filter = 'invert(' + (INVERT_MAX_VALUE * prop) + '%)';
             break;
+          case 'effects__preview--phobos':
+            imageUploadPreview.style.filter = 'blur(' + (BLUR_MAX_VALUE * prop) + 'px)';
+            break;
         }
       }
     }
