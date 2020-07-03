@@ -57,7 +57,6 @@
 
     var startCoords = {
       x: evt.clientX,
-      y: evt.clientY,
     };
 
     var mouseMoveHandler = function (moveEvt) {
@@ -65,14 +64,13 @@
 
       var shift = {
         x: startCoords.x - moveEvt.clientX,
-        y: startCoords.y - moveEvt.clientY,
       };
 
       startCoords = {
         x: moveEvt.clientX,
-        y: moveEvt.clientY,
       };
 
+      effectLevelPin.style.left = (effectLevelPin.offsetLeft - shift.x) + 'px';
     };
 
     var mouseUpHandler = function (upEvt) {
