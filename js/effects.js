@@ -30,12 +30,20 @@
     element.className = '';
   };
 
+  var setDefaultEffectValue = function () {
+    effectLevelValue.value = DEFAULT_EFFECT_VALUE;
+    effectLevelPin.style.left = DEFAULT_EFFECT_VALUE + '%';
+    effectLevelDepth.style.width = DEFAULT_EFFECT_VALUE + '%';
+    imageUploadPreview.style.filter = '';
+  };
+
   var setClassByEffect = function (evt) {
     var effectName = evt.target.value;
     removeClass(imageUploadPreview);
     if (effectName !== 'none') {
       imageUploadPreview.classList.add('effects__preview--' + effectName);
       effectFieldset.classList.remove('hidden');
+      setDefaultEffectValue();
     } else {
       removeClass(imageUploadPreview);
       effectFieldset.classList.add('hidden');
@@ -62,12 +70,6 @@
 
   var getValueRange = function (value, min, max) {
     return value * (max - min) + min;
-  };
-
-  var setDefaultEffectValue = function () {
-    effectLevelValue.value = DEFAULT_EFFECT_VALUE;
-    effectLevelPin.style.left = DEFAULT_EFFECT_VALUE + '%';
-    effectLevelDepth.style.width = DEFAULT_EFFECT_VALUE + '%';
   };
 
   var setEffectValue = function (value) {
@@ -124,7 +126,7 @@
         var pin = pinX / effectScaleLevelWidth;
         effectLevelPin.style.left = pinX + 'px';
         effectLevelValue.value = Math.round(pin * DEFAULT_EFFECT_VALUE);
-        effectLevelDepth.style.width = Math.round(pin * DEFAULT_EFFECT_VALUE);
+        effectLevelDepth.style.width = Math.round(pin * DEFAULT_EFFECT_VALUE) + '%';
         setEffectValue(effectLevelValue.value);
       }
     };
