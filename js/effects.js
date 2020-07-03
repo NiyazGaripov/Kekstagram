@@ -1,6 +1,14 @@
 'use strict';
 
 (function () {
+  var DEFAULT_EFFECT_VALUE = 100;
+  var GRAYSCALE_MAX_VALUE = 1;
+  var SEPIA_MAX_VALUE = 1;
+  var INVERT_MAX_VALUE = 100;
+  var BLUR_MAX_VALUE = 3;
+  var BRIGHTNESS_MIN_VALUE = 1;
+  var BRIGHTNESS_MAX_VALUE = 3;
+
   var imageEditingForm = document.querySelector('.img-upload__overlay');
   var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
   var effectFieldset = imageEditingForm.querySelector('.effect-level');
