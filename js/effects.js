@@ -68,6 +68,7 @@
 
   var setEffectValue = function (value) {
     var prop = value / 100;
+    var effectClasses = Array.from(imageUploadPreview.classList);
   };
 
   effectLevelPin.addEventListener('mousedown', function (evt) {
