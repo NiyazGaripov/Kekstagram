@@ -12,4 +12,5 @@
     INTERNAL_SERVER: 500,
   };
 
+  var TIMEOUT = 10000;
 })();
