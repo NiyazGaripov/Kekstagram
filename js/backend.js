@@ -17,6 +17,8 @@
   var processServerResponse = function (xhr, method, onLoad, onError) {
     xhr.responseType = 'json';
     xhr.timeout = TIMEOUT;
+
+    xhr.open(method, UrlTypes[method]);
   };
 
   var loadData = function (onLoad, onError) {
