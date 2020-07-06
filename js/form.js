@@ -5,7 +5,8 @@
 
   var body = document.querySelector('body');
   var uploadFile = document.querySelector('#upload-file');
-  var imageEditingForm = document.querySelector('.img-upload__overlay');
+  var form = document.querySelector('.img-upload__form');
+  var imageEditingForm = form.querySelector('.img-upload__overlay');
   var imageEditingFormClose = imageEditingForm.querySelector('#upload-cancel');
   var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
   var textareaDesc = imageEditingForm.querySelector('.text__description');
@@ -44,4 +45,18 @@
   };
 
   uploadFile.addEventListener('change', inputUploadClickHandler);
+
+  var successUploadDataHandler = function () {
+    imageEditingForm.classList.add('hidden');
+    window.alert.createElement();
+  };
+
+  var errorUploadDataHandler = function (message) {
+    window.alert.createElement(message);
+  };
+
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), successUploadDataHandler, errorUploadDataHandler);
+    evt.preventDefault();
+  });
 })();
