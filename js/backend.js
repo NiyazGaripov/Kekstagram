@@ -14,6 +14,11 @@
 
   var TIMEOUT = 10000;
 
+  var processServerResponse = function (xhr, method, onLoad, onError) {
+    xhr.responseType = 'json';
+    xhr.timeout = TIMEOUT;
+  };
+
   var loadData = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
