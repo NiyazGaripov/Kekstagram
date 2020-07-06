@@ -41,6 +41,10 @@
       onError('Произошла ошибка соединения! Проверьте соединение с интернетом');
     });
 
+    xhr.addEventListener('timeout', function () {
+      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+    });
+
   };
 
   var loadData = function (onLoad, onError) {
