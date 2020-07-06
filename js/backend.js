@@ -53,8 +53,15 @@
     xhr.send();
   };
 
+  var uploadData = function (data, onLoad, onError) {
+    var xhr = new XMLHttpRequest();
+    processServerResponse(xhr, 'POST', onLoad, onError);
+    xhr.send(data);
+  };
+
   window.backend = {
     load: loadData,
+    save: uploadData,
   };
 
 })();
