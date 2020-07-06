@@ -19,6 +19,28 @@
     xhr.timeout = TIMEOUT;
 
     xhr.open(method, UrlTypes[method]);
+
+    xhr.addEventListener('load', function () {
+      switch (xhr.status) {
+        case StatusCode.OK:
+          onLoad(xhr.response);
+          break;
+        case StatusCode.BAD_REQUEST:
+          onError('Сервер не смог обработать ваш запрос. Попробуйте открыть сайт другим браузером.');
+          break;
+        case StatusCode.NOT_FOUND:
+          onError('Запрашиваемая страница не найдена. Проверьте корректность введённого адреса страницы.');
+          break;
+        case StatusCode.INTERNAL_SERVER:
+          onError('Сервер не отвечает. Повторите попытку позже.');
+          break;
+      }
+    });
+
+    xhr.addEventListener('error', function () {
+      onError('Произошла ошибка соединения! Проверьте соединение с интернетом');
+    });
+
   };
 
   var loadData = function (onLoad, onError) {
