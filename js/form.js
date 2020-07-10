@@ -2,6 +2,7 @@
 
 (function () {
   var ESC_KEY = 'Escape';
+  var DEFAULT_EFFECT_VALUE = 100;
 
   var body = document.querySelector('body');
   var uploadFile = document.querySelector('#upload-file');
@@ -26,6 +27,7 @@
     document.removeEventListener('keydown', imageEditingFormEscHandler);
     uploadFile.value = '';
     window.effects.removeListeners();
+    window.scale.setValueImage(DEFAULT_EFFECT_VALUE);
   };
 
   var imageEditingFormEscHandler = function (evt) {
@@ -47,7 +49,7 @@
   uploadFile.addEventListener('change', inputUploadClickHandler);
 
   var successUploadDataHandler = function () {
-    imageEditingForm.classList.add('hidden');
+    closeImageEditingForm();
     window.alert.createElement();
   };
 
@@ -58,5 +60,6 @@
   form.addEventListener('submit', function (evt) {
     window.backend.save(new FormData(form), successUploadDataHandler, errorUploadDataHandler);
     evt.preventDefault();
+
   });
 })();
