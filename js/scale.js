@@ -33,4 +33,8 @@
 
   controlSmaller.addEventListener('click', buttonScaleControlClickHandler);
   controlBigger.addEventListener('click', buttonScaleControlClickHandler);
+
+  window.scale = {
+    setValueImage: setScaleValueImage,
+  };
 })();
