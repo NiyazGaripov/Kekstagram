@@ -67,7 +67,7 @@
 
   var successUploadDataHandler = function () {
     closeImageEditingForm();
-    window.alert.createElement();
+    window.alerts.renderSuccess();
   };
 
   var errorUploadDataHandler = function (message) {
