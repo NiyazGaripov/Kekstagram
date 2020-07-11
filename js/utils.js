@@ -17,8 +17,12 @@
     imageUploadPreview.style.filter = '';
   };
 
+  var removeClass = function (element) {
+    element.className = '';
+  };
 
   window.utils = {
     setDefaultValue: setDefaultValue,
+    removeClass: removeClass,
   };
 })();
