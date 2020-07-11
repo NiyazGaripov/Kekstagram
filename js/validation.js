@@ -5,10 +5,6 @@
   var MAX_LENGTH_HASHTAG = 20;
   var MAX_AMOUNT_HASHTAG = 5;
 
-  var imageEditingForm = document.querySelector('.img-upload__overlay');
-  var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
-  var textareaDesc = imageEditingForm.querySelector('.text__description');
-
   var inputHashtagCheckHandler = function (evt) {
     var target = evt.target;
     var arrayHashtags = target.value.split(' ');
@@ -91,6 +87,8 @@
     }
   };
 
-  inputHashtags.addEventListener('input', inputHashtagCheckHandler);
-  textareaDesc.addEventListener('input', inputTextareaCheckHandler);
+  window.validation = {
+    hashtagCheckHandler: inputHashtagCheckHandler,
+    textareaCheckHandler: inputTextareaCheckHandler,
+  };
 })();
