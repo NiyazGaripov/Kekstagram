@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-  var DEFAULT_EFFECT_VALUE = 100;
   var GRAYSCALE_MAX_VALUE = 1;
   var SEPIA_MAX_VALUE = 1;
   var INVERT_MAX_VALUE = 100;
@@ -12,9 +11,6 @@
   var imageEditingForm = document.querySelector('.img-upload__overlay');
   var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
   var effectFieldset = imageEditingForm.querySelector('.effect-level');
-  var effectLevelValue = imageEditingForm.querySelector('.effect-level__value');
-  var effectLevelPin = imageEditingForm.querySelector('.effect-level__pin');
-  var effectLevelDepth = imageEditingForm.querySelector('.effect-level__depth');
   var effectNone = imageEditingForm.querySelector('[id=effect-none]');
   var effectChrome = imageEditingForm.querySelector('[id=effect-chrome]');
   var effectSepia = imageEditingForm.querySelector('[id=effect-sepia]');
@@ -22,26 +18,15 @@
   var effectPhobos = imageEditingForm.querySelector('[id=effect-phobos]');
   var effectHeat = imageEditingForm.querySelector('[id=effect-heat]');
 
-  var removeClass = function (element) {
-    element.className = '';
-  };
-
-  var setDefaultEffectValue = function () {
-    effectLevelValue.value = DEFAULT_EFFECT_VALUE;
-    effectLevelPin.style.left = DEFAULT_EFFECT_VALUE + '%';
-    effectLevelDepth.style.width = DEFAULT_EFFECT_VALUE + '%';
-    imageUploadPreview.style.filter = '';
-  };
-
   var setClassByEffect = function (evt) {
     var effectName = evt.target.value;
-    removeClass(imageUploadPreview);
+    window.utils.removeClass(imageUploadPreview);
     if (effectName !== 'none') {
       imageUploadPreview.classList.add('effects__preview--' + effectName);
       effectFieldset.classList.remove('hidden');
-      setDefaultEffectValue();
+      window.utils.setDefaultValue();
     } else {
-      removeClass(imageUploadPreview);
+      window.utils.removeClass(imageUploadPreview);
       effectFieldset.classList.add('hidden');
       imageUploadPreview.style.filter = '';
     }
