@@ -8,9 +8,23 @@
   var uploadFile = document.querySelector('#upload-file');
   var form = document.querySelector('.img-upload__form');
   var imageEditingForm = form.querySelector('.img-upload__overlay');
+  var imageUploadPreview = imageEditingForm.querySelector('.img-upload__preview img');
+  var effectFieldset = imageEditingForm.querySelector('.effect-level');
   var imageEditingFormClose = imageEditingForm.querySelector('#upload-cancel');
   var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
   var textareaDesc = imageEditingForm.querySelector('.text__description');
+  var effectNone = imageEditingForm.querySelector('[id=effect-none]');
+
+  var resetFormData = function () {
+    uploadFile.value = '';
+    effectFieldset.classList.add('hidden');
+    effectNone.checked = true;
+    inputHashtags.value = '';
+    textareaDesc.value = '';
+    window.scale.setValueImage(DEFAULT_EFFECT_VALUE);
+    window.utils.setDefaultValue();
+    window.utils.removeClass(imageUploadPreview);
+  };
 
   var openImageEditingForm = function () {
     imageEditingForm.classList.remove('hidden');
@@ -18,6 +32,8 @@
     imageEditingFormClose.addEventListener('click', buttonCloseClickHandler);
     document.addEventListener('keydown', imageEditingFormEscHandler);
     window.effects.addListeners();
+    inputHashtags.addEventListener('input', window.validation.hashtagCheckHandler);
+    textareaDesc.addEventListener('input', window.validation.textareaCheckHandler);
   };
 
   var closeImageEditingForm = function () {
@@ -25,9 +41,10 @@
     body.classList.remove('modal-open');
     imageEditingFormClose.removeEventListener('click', buttonCloseClickHandler);
     document.removeEventListener('keydown', imageEditingFormEscHandler);
-    uploadFile.value = '';
     window.effects.removeListeners();
-    window.scale.setValueImage(DEFAULT_EFFECT_VALUE);
+    inputHashtags.removeEventListener('input', window.validation.hashtagCheckHandler);
+    textareaDesc.removeEventListener('input', window.validation.textareaCheckHandler);
+    resetFormData();
   };
 
   var imageEditingFormEscHandler = function (evt) {
