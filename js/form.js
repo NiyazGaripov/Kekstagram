@@ -14,6 +14,10 @@
   var inputHashtags = imageEditingForm.querySelector('.text__hashtags');
   var textareaDesc = imageEditingForm.querySelector('.text__description');
   var effectNone = imageEditingForm.querySelector('[id=effect-none]');
+  var successAlertTemplate = document.querySelector('#success');
+  var successAlert = successAlertTemplate.content.querySelector('.success');
+  var errorAlertTemplate = document.querySelector('#error');
+  var errorAlert = errorAlertTemplate.content.querySelector('.error');
 
   var resetFormData = function () {
     uploadFile.value = '';
@@ -67,12 +71,11 @@
 
   var successUploadDataHandler = function () {
     closeImageEditingForm();
-    window.alerts.renderSuccess();
+    window.alerts.render(successAlert);
   };
 
   var errorUploadDataHandler = function () {
-    window.alerts.renderError();
-
+    window.alerts.render(errorAlert);
   };
 
   form.addEventListener('submit', function (evt) {
