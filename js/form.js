@@ -70,8 +70,9 @@
     window.alerts.renderSuccess();
   };
 
-  var errorUploadDataHandler = function (message) {
-    window.alert.createElement(message);
+  var errorUploadDataHandler = function () {
+    window.alerts.renderError();
+
   };
 
   form.addEventListener('submit', function (evt) {
