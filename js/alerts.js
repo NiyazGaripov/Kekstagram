@@ -7,7 +7,12 @@
     main.appendChild(alert);
   };
 
+  var removeAlert = function (alert) {
+    alert.remove();
+  };
+
   window.alerts = {
     render: renderAlert,
+    remove: removeAlert,
   };
 })();
