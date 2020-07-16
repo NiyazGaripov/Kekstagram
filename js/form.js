@@ -16,8 +16,12 @@
   var effectNone = imageEditingForm.querySelector('[id=effect-none]');
   var successAlertTemplate = document.querySelector('#success');
   var successAlert = successAlertTemplate.content.querySelector('.success');
+  var successInner = successAlert.querySelector('.success__inner');
+  var successButton = successAlert.querySelector('.success__button');
   var errorAlertTemplate = document.querySelector('#error');
   var errorAlert = errorAlertTemplate.content.querySelector('.error');
+  var errorInner = errorAlert.querySelector('.error__inner');
+  var errorButton = successAlert.querySelector('.error__button');
 
   var resetFormData = function () {
     uploadFile.value = '';
@@ -69,13 +73,48 @@
 
   uploadFile.addEventListener('change', inputUploadClickHandler);
 
+  var buttonCloseAlertHandler = function () {
+    closeAlert();
+  };
+
+  var alertEscHandler = function (evt) {
+    if (evt.key === ESC_KEY) {
+      closeAlert();
+    }
+  };
+
+  var dismissAlertClickHandler = function (evt) {
+    if (evt.target !== successInner || evt.target !== errorInner) {
+      closeAlert();
+    }
+  };
+
+  var openSuccessAlert = function () {
+    window.alerts.render(successAlert);
+    successButton.addEventListener('click', buttonCloseAlertHandler);
+    document.addEventListener('keydown', alertEscHandler);
+    successAlert.addEventListener('click', dismissAlertClickHandler);
+  };
+
+  var openErrorAlert = function () {
+    window.alerts.render(errorAlert);
+    errorButton.addEventListener('click', buttonCloseAlertHandler);
+    document.addEventListener('keydown', alertEscHandler);
+    errorAlert.addEventListener('click', dismissAlertClickHandler);
+  };
+
+  var closeAlert = function () {
+    window.alerts.remove(successAlert);
+    window.alerts.remove(errorAlert);
+  };
+
   var successUploadDataHandler = function () {
     closeImageEditingForm();
-    window.alerts.render(successAlert);
+    openSuccessAlert();
   };
 
   var errorUploadDataHandler = function () {
-    window.alerts.render(errorAlert);
+    openErrorAlert();
   };
 
   form.addEventListener('submit', function (evt) {
