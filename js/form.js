@@ -84,7 +84,7 @@
   };
 
   var dismissAlertClickHandler = function (evt) {
-    if (evt.target !== successInner || evt.target !== errorInner) {
+    if (evt.target === successAlert || evt.target === errorAlert) {
       closeAlert();
     }
   };
