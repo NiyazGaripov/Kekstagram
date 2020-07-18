@@ -16,11 +16,9 @@
   var effectNone = imageEditingForm.querySelector('[id=effect-none]');
   var successAlertTemplate = document.querySelector('#success');
   var successAlert = successAlertTemplate.content.querySelector('.success');
-  var successInner = successAlert.querySelector('.success__inner');
   var successButton = successAlert.querySelector('.success__button');
   var errorAlertTemplate = document.querySelector('#error');
   var errorAlert = errorAlertTemplate.content.querySelector('.error');
-  var errorInner = errorAlert.querySelector('.error__inner');
   var errorButton = successAlert.querySelector('.error__button');
 
   var resetFormData = function () {
@@ -89,18 +87,11 @@
     }
   };
 
-  var openSuccessAlert = function () {
-    window.alerts.render(successAlert);
-    successButton.addEventListener('click', buttonCloseAlertHandler);
+  var openAlert = function (alert, element) {
+    window.alerts.render(alert);
+    element.addEventListener('click', buttonCloseAlertHandler);
     document.addEventListener('keydown', alertEscHandler);
-    successAlert.addEventListener('click', dismissAlertClickHandler);
-  };
-
-  var openErrorAlert = function () {
-    window.alerts.render(errorAlert);
-    errorButton.addEventListener('click', buttonCloseAlertHandler);
-    document.addEventListener('keydown', alertEscHandler);
-    errorAlert.addEventListener('click', dismissAlertClickHandler);
+    alert.addEventListener('click', dismissAlertClickHandler);
   };
 
   var closeAlert = function () {
@@ -110,11 +101,11 @@
 
   var successUploadDataHandler = function () {
     closeImageEditingForm();
-    openSuccessAlert();
+    openAlert(successAlert, successButton);
   };
 
   var errorUploadDataHandler = function () {
-    openErrorAlert();
+    openAlert(errorAlert, errorButton);
   };
 
   form.addEventListener('submit', function (evt) {
