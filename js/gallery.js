@@ -16,13 +16,17 @@
     return domElements;
   };
 
-  var successLoadDataHandler = function (photos) {
+  var render = function (photos) {
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < AMOUNT_PHOTOS; i++) {
       fragment.appendChild(createDomElements(photos[i]));
     }
     blockPictures.appendChild(fragment);
+  }
+
+  var successLoadDataHandler = function (photos) {
+    render(photos);
   };
 
   var errorLoadDataHandler = function () {
