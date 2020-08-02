@@ -2,11 +2,8 @@
 
 (function () {
   var ESC_KEY = 'Escape';
-  var ENTER_KEY = 'Enter';
 
   var body = document.querySelector('body');
-  var galleryContainer = document.querySelector('.pictures');
-  var pictureCollections = galleryContainer.querySelectorAll('.picture__img');
   var previewPicture = document.querySelector('.big-picture');
   var bigPicture = previewPicture.querySelector('.big-picture__img img');
   var likesCount = previewPicture.querySelector('.likes-count');
@@ -16,7 +13,6 @@
   var socialCaption = previewPicture.querySelector('.social__caption');
   var socialCommentCount = previewPicture.querySelector('.social__comment-count');
   var commentsLoader = previewPicture.querySelector('.comments-loader');
-
   var previewPictureClose = previewPicture.querySelector('#picture-cancel');
 
   var showElement = function (element) {
@@ -56,7 +52,7 @@
   var fillPictureInfo = function (item) {
     var commentsFragment = renderComments(item.comments);
 
-    bigPicture.src = item.url;
+    bigPicture.src = 'img/' + item.url;
     likesCount.textContent = item.likes;
     commentsCount.textContent = item.comments.length;
     socialCaption.textContent = item.description;
@@ -87,31 +83,9 @@
     removeElement(socialComments);
     hideElement(socialCommentCount);
     hideElement(commentsLoader);
-    fillPictureInfo(window.gallery.photos[item]);
+    fillPictureInfo(item);
 
     previewPictureClose.addEventListener('click', buttonCloseClickHandler);
     document.addEventListener('keydown', previewPictureEscHandler);
   };
-
-  var previewPictureClickHandler = function (evt) {
-    for (var i = 0; i < pictureCollections.length; i++) {
-      if (evt.target === pictureCollections[i]) {
-        openPreviewPicture(i);
-      }
-    }
-  };
-
-  var previewPictureKeyDownHandler = function (evt) {
-    if (evt.key === ENTER_KEY) {
-      for (var i = 0; i < pictureCollections.length; i++) {
-        var current = evt.target.querySelector('.picture__img');
-        if (current === pictureCollections[i]) {
-          openPreviewPicture(i);
-        }
-      }
-    }
-  };
-
-  galleryContainer.addEventListener('click', previewPictureClickHandler);
-  galleryContainer.addEventListener('keydown', previewPictureKeyDownHandler);
 })();
