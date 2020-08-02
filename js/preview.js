@@ -88,4 +88,8 @@
     previewPictureClose.addEventListener('click', buttonCloseClickHandler);
     document.addEventListener('keydown', previewPictureEscHandler);
   };
+
+  window.preview = {
+    openPicture: openPreviewPicture,
+  };
 })();
