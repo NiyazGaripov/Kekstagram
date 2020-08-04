@@ -15,14 +15,6 @@
   var commentsLoader = previewPicture.querySelector('.comments-loader');
   var previewPictureClose = previewPicture.querySelector('#picture-cancel');
 
-  var showElement = function (element) {
-    element.classList.remove('hidden');
-  };
-
-  var hideElement = function (element) {
-    element.classList.add('hidden');
-  };
-
   var removeElement = function (element) {
     while (element.firstChild) {
       element.removeChild(element.firstChild);
@@ -63,7 +55,7 @@
   var closePreviewPicture = function () {
     previewPictureClose.removeEventListener('click', buttonCloseClickHandler);
     document.removeEventListener('keydown', previewPictureEscHandler);
-    hideElement(previewPicture);
+    window.utils.hideElement(previewPicture);
     body.classList.remove('modal-open');
   };
 
@@ -78,11 +70,11 @@
   };
 
   var openPreviewPicture = function (item) {
-    showElement(previewPicture);
+    window.utils.showElement(previewPicture);
     body.classList.add('modal-open');
     removeElement(socialComments);
-    hideElement(socialCommentCount);
-    hideElement(commentsLoader);
+    window.utils.hideElement(socialCommentCount);
+    window.utils.hideElement(commentsLoader);
     fillPictureInfo(item);
 
     previewPictureClose.addEventListener('click', buttonCloseClickHandler);
