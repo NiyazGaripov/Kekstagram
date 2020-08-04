@@ -33,7 +33,7 @@
   };
 
   var openImageEditingForm = function () {
-    imageEditingForm.classList.remove('hidden');
+    window.utils.showElement(imageEditingForm);
     body.classList.add('modal-open');
     imageEditingFormClose.addEventListener('click', buttonCloseClickHandler);
     document.addEventListener('keydown', imageEditingFormEscHandler);
