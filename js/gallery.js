@@ -7,7 +7,7 @@
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
-
+  var filter = document.querySelector('.img-filters')
   var createDomElements = function (element) {
     var domElements = linkPicture.cloneNode(true);
     domElements.querySelector('.picture__img').src = 'img/' + element.url;
@@ -29,6 +29,7 @@
   var successLoadDataHandler = function (photos) {
     allPhotos = photos;
     render(photos);
+    filter.classList.remove('img-filters--inactive');
   };
 
   var errorLoadDataHandler = function (message) {
