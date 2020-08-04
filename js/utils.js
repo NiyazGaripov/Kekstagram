@@ -21,8 +21,18 @@
     element.className = '';
   };
 
+  var showElement = function (element) {
+    element.classList.remove('hidden');
+  };
+
+  var hideElement = function (element) {
+    element.classList.add('hidden');
+  };
+
   window.utils = {
     setDefaultValue: setDefaultValue,
     removeClass: removeClass,
+    showElement: showElement,
+    hideElement: hideElement,
   };
 })();
