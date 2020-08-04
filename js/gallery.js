@@ -31,8 +31,8 @@
     render(photos);
   };
 
-  var errorLoadDataHandler = function () {
-    console.log(0);
+  var errorLoadDataHandler = function (message) {
+    window.alerts.create(message)
   };
 
   window.backend.load(successLoadDataHandler, errorLoadDataHandler);
