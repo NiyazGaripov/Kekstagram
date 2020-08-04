@@ -23,7 +23,7 @@
     window.utils.removeClass(imageUploadPreview);
     if (effectName !== 'none') {
       imageUploadPreview.classList.add('effects__preview--' + effectName);
-      effectFieldset.classList.remove('hidden');
+      window.utils.showElement(effectFieldset);
       window.utils.setDefaultValue();
     } else {
       window.utils.removeClass(imageUploadPreview);
