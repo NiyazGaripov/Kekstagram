@@ -10,6 +10,12 @@
   var filter = document.querySelector('.img-filters');
   var filterControls = filter.querySelectorAll('.img-filters__button');
 
+  var SortType = {
+    DEFAULT: `filter-default`,
+    RANDOM: `filter-random`,
+    DISCUSSED: `filter-discussed`,
+  };
+
   var photo = {
     onDefaultChange: function () {},
     onRandomChange: function () {},
