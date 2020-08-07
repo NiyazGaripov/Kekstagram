@@ -7,7 +7,9 @@
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
-  var filter = document.querySelector('.img-filters')
+  var filter = document.querySelector('.img-filters');
+  var filterControls = filter.querySelectorAll('.img-filters__button');
+
   var createDomElements = function (element) {
     var domElements = linkPicture.cloneNode(true);
     domElements.querySelector('.picture__img').src = 'img/' + element.url;
