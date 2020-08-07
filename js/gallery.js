@@ -10,6 +10,12 @@
   var filter = document.querySelector('.img-filters');
   var filterControls = filter.querySelectorAll('.img-filters__button');
 
+  var photo = {
+    onDefaultChange: function () {},
+    onRandomChange: function () {},
+    onMostCommentsChange: function () {},
+  }
+
   var createDomElements = function (element) {
     var domElements = linkPicture.cloneNode(true);
     domElements.querySelector('.picture__img').src = 'img/' + element.url;
