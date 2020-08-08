@@ -31,6 +31,22 @@
     return domElements;
   };
 
+  var sortPhotos = function (type) {
+    var sortedPhotos = [];
+
+    switch (type) {
+      case SortType.DEFAULT:
+        sortedPhotos = allPhotos;
+        return sortedPhotos;
+      case SortType.RANDOM:
+        sortedPhotos = allPhotos.sort((a, b) =>  b - a).slice(0, 10);
+        return sortedPhotos
+      case SortType.DISCUSSED:
+        sortedPhotos = allPhotos.sort((a, b) => b.comments.length - a.comments.length);
+        break;
+    }
+  }
+
   var render = function (photos) {
     var fragment = document.createDocumentFragment();
 
