@@ -43,14 +43,14 @@
         return sortedPhotos
       case SortType.DISCUSSED:
         sortedPhotos = allPhotos.sort((a, b) => b.comments.length - a.comments.length);
-        break;
+        return sortedPhotos;
     }
   }
 
   var render = function (photos) {
     var fragment = document.createDocumentFragment();
 
-    for (var i = 0; i < AMOUNT_PHOTOS; i++) {
+    for (var i = 0; i < photos.length; i++) {
       fragment.appendChild(createDomElements(photos[i]));
     }
     blockPictures.appendChild(fragment);
