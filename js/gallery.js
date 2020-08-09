@@ -84,12 +84,12 @@
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < photos.length; i++) {
-      blockPictures.innerHTML = '';
+      // blockPictures.innerHTML = '';
       fragment.appendChild(createDomElements(photos[i]));
     }
 
-    blockPictures.appendChild(title);
-    blockPictures.appendChild(imgUpload);
+    // blockPictures.appendChild(title);
+    // blockPictures.appendChild(imgUpload);
     blockPictures.appendChild(fragment);
   }
 
@@ -108,9 +108,9 @@
 
   var previewPictureClickHandler = function (evt) {
     allPhotos.forEach(function(item, index) {
-      if (evt.target.src.split('/').slice(-2).join('/') === allPhotos[index].url) {
-        window.preview.openPicture(item);
-      }
+      // if (evt.target.src.split('/').slice(-2).join('/') === allPhotos[index].url) {
+      //   window.preview.openPicture(item);
+      // }
     })
   };
 
@@ -119,9 +119,9 @@
       allPhotos.forEach(function(item, index) {
         var current = evt.target.querySelector('.picture__img');
 
-        if (current.src.split('/').slice(-2).join('/') === allPhotos[index].url) {
-          window.preview.openPicture(item);
-        }
+        // if (current.src.split('/').slice(-2).join('/') === allPhotos[index].url) {
+        //   window.preview.openPicture(item);
+        // }
       })
     }
   };
