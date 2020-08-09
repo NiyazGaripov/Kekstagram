@@ -47,6 +47,15 @@
     }
   }
 
+  var update = function () {
+    for (let control of filterControls) {
+      control.addEventListener('click', function () {
+        render(sortPhotos(control.id));
+        console.log(sortPhotos(control.id));
+      })
+    }
+  }
+
   var render = function (photos) {
     var fragment = document.createDocumentFragment();
 
@@ -58,7 +67,8 @@
 
   var successLoadDataHandler = function (photos) {
     allPhotos = photos;
-    render(photos);
+    render(allPhotos);
+    update();
     filter.classList.remove('img-filters--inactive');
   };
 
