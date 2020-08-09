@@ -2,7 +2,6 @@
 
 (function () {
   var ENTER_KEY = 'Enter';
-  var AMOUNT_PHOTOS = 25;
   var FIRST_INDEX = 0;
   var LAST_INDEX = 10;
   var ACTIVE_CLASS = 'img-filters__button--active';
@@ -19,12 +18,6 @@
     RANDOM: `filter-random`,
     DISCUSSED: `filter-discussed`,
   };
-
-  var photo = {
-    onDefaultChange: function () {},
-    onRandomChange: function () {},
-    onMostCommentsChange: function () {},
-  }
 
   var createDomElements = function (element) {
     var domElements = linkPicture.cloneNode(true);
@@ -96,7 +89,7 @@
 
   var successLoadDataHandler = function (photos) {
     allPhotos = photos;
-    // render(allPhotos);
+    render(allPhotos);
     update();
     filter.classList.remove('img-filters--inactive');
   };
