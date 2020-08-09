@@ -3,6 +3,8 @@
 (function () {
   var ENTER_KEY = 'Enter';
   var AMOUNT_PHOTOS = 25;
+  var FIRST_INDEX = 0;
+  var LAST_INDEX = 10;
   var allPhotos = [];
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
@@ -31,6 +33,21 @@
     return domElements;
   };
 
+  var shuffle = function (array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
   var sortPhotos = function (type) {
     var sortedPhotos = [];
 
@@ -39,7 +56,7 @@
         sortedPhotos = allPhotos;
         return sortedPhotos;
       case SortType.RANDOM:
-        sortedPhotos = allPhotos.sort((a, b) =>  b - a).slice(0, 10);
+        sortedPhotos = shuffle(allPhotos).slice(FIRST_INDEX, LAST_INDEX);
         return sortedPhotos
       case SortType.DISCUSSED:
         sortedPhotos = allPhotos.sort((a, b) => b.comments.length - a.comments.length);
@@ -67,7 +84,7 @@
 
   var successLoadDataHandler = function (photos) {
     allPhotos = photos;
-    render(allPhotos);
+    // render(allPhotos);
     update();
     filter.classList.remove('img-filters--inactive');
   };
