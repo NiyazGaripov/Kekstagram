@@ -9,6 +9,8 @@
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
+  var blockPicturesImgUpload = blockPictures.querySelector('.img-upload');
+  var blockPicturesTitle = blockPictures.querySelector('.pictures__title');
   var filter = document.querySelector('.img-filters');
   var filterForm = filter.querySelector('.img-filters__form');
   var filterControls = filterForm.querySelectorAll('.img-filters__button');
@@ -73,17 +75,22 @@
       control.addEventListener('click', function () {
         setActiveClass(filterForm, control)
         render(sortPhotos(control.id));
-        console.log(sortPhotos(control.id));
       })
     }
   }
 
   var render = function (photos) {
+    var title = blockPicturesTitle.cloneNode(true);
+    var imgUpload = blockPicturesImgUpload.cloneNode(true);
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < photos.length; i++) {
+      blockPictures.innerHTML = '';
       fragment.appendChild(createDomElements(photos[i]));
     }
+
+    blockPictures.appendChild(title);
+    blockPictures.appendChild(imgUpload);
     blockPictures.appendChild(fragment);
   }
 
