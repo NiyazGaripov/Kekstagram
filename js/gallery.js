@@ -5,12 +5,14 @@
   var AMOUNT_PHOTOS = 25;
   var FIRST_INDEX = 0;
   var LAST_INDEX = 10;
+  var ACTIVE_CLASS = 'img-filters__button--active';
   var allPhotos = [];
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
   var filter = document.querySelector('.img-filters');
-  var filterControls = filter.querySelectorAll('.img-filters__button');
+  var filterForm = filter.querySelector('.img-filters__form');
+  var filterControls = filterForm.querySelectorAll('.img-filters__button');
 
   var SortType = {
     DEFAULT: `filter-default`,
@@ -64,9 +66,19 @@
     }
   }
 
+  var setActiveClass = (container, element) => {
+    var node = container.querySelector('.' + ACTIVE_CLASS);
+
+    if (!element.classList.contains(ACTIVE_CLASS)) {
+      node.classList.remove(ACTIVE_CLASS);
+      element.classList.add(ACTIVE_CLASS);
+    }
+  };
+
   var update = function () {
     for (let control of filterControls) {
       control.addEventListener('click', function () {
+        setActiveClass(filterForm, control)
         render(sortPhotos(control.id));
         console.log(sortPhotos(control.id));
       })
