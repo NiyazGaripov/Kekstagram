@@ -46,17 +46,16 @@
   }
 
   var sortPhotos = function (type) {
-    var sortedPhotos = [];
+    var sortedPhotos = allPhotos.slice();
 
     switch (type) {
       case SortType.DEFAULT:
-        sortedPhotos = allPhotos;
-        return sortedPhotos;
+        return allPhotos;
       case SortType.RANDOM:
-        sortedPhotos = shuffle(allPhotos).slice(FIRST_INDEX, LAST_INDEX);
+        sortedPhotos = shuffle(sortedPhotos).slice(FIRST_INDEX, LAST_INDEX);
         return sortedPhotos
       case SortType.DISCUSSED:
-        sortedPhotos = allPhotos.sort((a, b) => b.comments.length - a.comments.length);
+        sortedPhotos = sortedPhotos.sort((a, b) => b.comments.length - a.comments.length);
         return sortedPhotos;
     }
   }
