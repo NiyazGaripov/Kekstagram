@@ -9,8 +9,7 @@
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
-  var blockPicturesImgUpload = blockPictures.querySelector('.img-upload');
-  var blockPicturesTitle = blockPictures.querySelector('.pictures__title');
+  var pictures = document.querySelectorAll('.picture');
   var filter = document.querySelector('.img-filters');
   var filterForm = filter.querySelector('.img-filters__form');
   var filterControls = filterForm.querySelectorAll('.img-filters__button');
@@ -79,26 +78,32 @@
   }
 
   var render = function (photos) {
-    // var title = blockPicturesTitle.cloneNode(true);
-    // var imgUpload = blockPicturesImgUpload.cloneNode(true);
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < photos.length; i++) {
-      // blockPictures.innerHTML = '';
+      removePictures();
       fragment.appendChild(createDomElements(photos[i]));
     }
 
-    // blockPictures.appendChild(title);
-    // blockPictures.appendChild(imgUpload);
     blockPictures.appendChild(fragment);
-    addListener();
+    addListener(blockPictures);
   }
 
-  var addListener = function () {
-    var pictures = document.querySelectorAll('.picture');
+  var addListener = function (container) {
+    var pictures = container.querySelectorAll('.picture');
 
     for (let picture of pictures) {
       picture.addEventListener('click', previewPictureClickHandler);
+    };
+  }
+
+  var removePictures = function () {
+    var pictures = document.querySelectorAll('.picture');
+
+    for (let picture of pictures) {
+      if (picture.parentNode) {
+        picture.parentNode.removeChild(picture);
+      }
     };
   }
 
