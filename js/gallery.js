@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-  var ENTER_KEY = 'Enter';
   var FIRST_INDEX = 0;
   var LAST_INDEX = 10;
   var ACTIVE_CLASS = 'img-filters__button--active';
@@ -9,15 +8,14 @@
   var templatePicture = document.querySelector('#picture');
   var linkPicture = templatePicture.content.querySelector('.picture');
   var blockPictures = document.querySelector('.pictures');
-  var pictures = document.querySelectorAll('.picture');
   var filter = document.querySelector('.img-filters');
   var filterForm = filter.querySelector('.img-filters__form');
   var filterControls = filterForm.querySelectorAll('.img-filters__button');
 
   var SortType = {
-    DEFAULT: `filter-default`,
-    RANDOM: `filter-random`,
-    DISCUSSED: `filter-discussed`,
+    DEFAULT: 'filter-default',
+    RANDOM: 'filter-random',
+    DISCUSSED: 'filter-discussed',
   };
 
   var createDomElements = function (element) {
@@ -54,12 +52,14 @@
         sortedPhotos = shuffle(sortedPhotos).slice(FIRST_INDEX, LAST_INDEX);
         return sortedPhotos
       case SortType.DISCUSSED:
-        sortedPhotos = sortedPhotos.sort((a, b) => b.comments.length - a.comments.length);
+        sortedPhotos = sortedPhotos.sort(function(a, b) {
+          return b.comments.length - a.comments.length;
+        })
         return sortedPhotos;
     }
   }
 
-  var setActiveClass = (container, element) => {
+  var setActiveClass = function (container, element) {
     var node = container.querySelector('.' + ACTIVE_CLASS);
 
     if (!element.classList.contains(ACTIVE_CLASS)) {
@@ -75,18 +75,6 @@
         render(sortPhotos(control.id));
       })
     }
-  }
-
-  var render = function (photos) {
-    var fragment = document.createDocumentFragment();
-
-    for (var i = 0; i < photos.length; i++) {
-      removePictures();
-      fragment.appendChild(createDomElements(photos[i]));
-    }
-
-    blockPictures.appendChild(fragment);
-    addListener(blockPictures);
   }
 
   var addListener = function (container) {
@@ -105,6 +93,18 @@
         picture.parentNode.removeChild(picture);
       }
     };
+  }
+
+  var render = function (photos) {
+    var fragment = document.createDocumentFragment();
+
+    for (var i = 0; i < photos.length; i++) {
+      removePictures();
+      fragment.appendChild(createDomElements(photos[i]));
+    }
+
+    blockPictures.appendChild(fragment);
+    addListener(blockPictures);
   }
 
   var successLoadDataHandler = function (photos) {
